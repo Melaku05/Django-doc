@@ -41,7 +41,9 @@ To install django in our machine we use the following command on the terminal
 
  `cd project_name`
 
+ 
 ` python3 manage.py runserver`
+
 
 
 ## Create application
