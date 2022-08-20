@@ -22,7 +22,7 @@ To deactive the virtual environment use the following command on the terminal
 `deactivate`
 
 
-## Install and Create Djnago project 
+## Install  Djnago  python Django Framework
 To install django in our machine we use the following command on the terminal
 
  `pip install django==4.2`
@@ -30,6 +30,8 @@ To install django in our machine we use the following command on the terminal
  To check the version installed django version
 
  `django-admin ---version`
+
+ ## To create django Project
 
  To create Django project
 
