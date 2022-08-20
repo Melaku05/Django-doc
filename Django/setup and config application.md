@@ -7,9 +7,9 @@
 ## 2. Create URL inside the application(urls.py)
 
 `from django.url import path
- from . import views
+ from . import views`
 
-urlpatterns =[\
+`urlpatterns =[\
     path(' /', views.index)\
 ]`
 
