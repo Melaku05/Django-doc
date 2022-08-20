@@ -9,10 +9,10 @@
 `from django.url import path
  from . import views`
 
-`urlpatterns =[
+`urlpatterns = [
 
     path(' /', views.index)
-    
+
 ]`
 
 ## 3. Add the path of the apps URL in Django(project) URL
