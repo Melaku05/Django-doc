@@ -31,10 +31,12 @@ To install django in our machine we use the following command on the terminal
 
  `django-admin ---version`
 
+ To create Django project
+
  `django-admin startproject project_name .`
 
  to run the project 
- 
+
  `cd project_name`
 
 ` python3 manage.py runserver`
