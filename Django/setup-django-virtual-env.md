@@ -7,8 +7,9 @@ check python and pip install in the machine by using
 python3 --version
 ```
 
-```p
-ip --version
+```
+pip --version
+
 ```
 
 
@@ -17,16 +18,20 @@ create virtual environment by using the following command
 
 ``` 
 python3 -m venv v_name 
+
 ```
 
 To activate the virtual environmet use the following command on the terminal
 
 ```
-source v_name/bin/activate ```
+source v_name/bin/activate
+
+ ```
 
 To deactive the virtual environment use the following command on the terminal
 
-``` deactivate
+```
+ deactivate
 ```
 
 
