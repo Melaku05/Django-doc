@@ -1,6 +1,6 @@
 # Configration and Setup  env for django project
 
-## Install python3 and Pip
+## Install python3 and Pip(Note:-python3 is stand for linux operationg system, use python for windows)
 check python and pip install in the machine by using 
 
 ``` 
