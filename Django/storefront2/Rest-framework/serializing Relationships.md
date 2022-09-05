@@ -54,3 +54,19 @@ def product_list(request):
     return Response(serializer.data)
 
 ```
+
+# Third way of serializer relations is netested object
+
+### 1 put this inside serializers.py
+```
+from decimal import Decimal
+from rest_framework import serializers
+from .models import Product, Collection
+
+class ProductSerializer(serializers.ModelSerializer):
+    title = serializers.CharField(max_length=255)
+    collection =serializers.HyperlinkedRelatedField(
+        queryset=Collection.objects.all(),
+        view_name='collection-detail',
+    )
+```
