@@ -54,7 +54,7 @@ class ProductFilter(FilterSet):
         model = Product
         fields = {
             'collection_id': ['exact'],
-            'price': ['gt', 'lt'],
+            'unit_price': ['gt', 'lt'],
         }
 ```
 
@@ -64,5 +64,5 @@ class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ProductFilter
+    filterset_class = ProductFilter
 ```
