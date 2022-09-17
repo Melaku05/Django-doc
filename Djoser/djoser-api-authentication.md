@@ -5,7 +5,29 @@
 
 `JSON web token authentication is does not use database.`
 
- # Adding authentication endpoint to the project
+## Available endpoints in Djoser
+
+### for managing users
+/users/
+/users/me/
+/users/confirm/
+/users/resend_activation/
+/users/set_password/
+/users/reset_password/
+/users/reset_password_confirm/
+/users/set_username/
+/users/reset_username/
+/users/reset_username_confirm/
+
+### for authentication users
+/token/login/ (Token Based Authentication)
+/token/logout/ (Token Based Authentication)
+/jwt/create/ (JSON Web Token Authentication)
+/jwt/refresh/ (JSON Web Token Authentication)
+/jwt/verify/ (JSON Web Token Authentication)
+
+###Djosessr does not have any endpoint for user profile. that also make senses because profile is belong to specifc apps.
+ # 1 Adding(Setup) authentication endpoint to the project
 
 ## install joser
 ```
@@ -55,3 +77,77 @@ SIMPLE_JWT = {
    'AUTH_HEADER_TYPES': ('JWT',),
 }
 ```
+
+
+# 2 Register user with coustom user 
+
+## I) check weather we have custom user model if not exist do this
+
+`create application`
+```
+python3 manage.py startapp core
+```
+### put this in `core app of model` 
+```
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+
+class User(AbstractUser):
+    pass
+```
+
+### register the model to the admin.py file
+
+```
+from django.contrib import admin
+from . models import User
+
+admin.site.register(User)
+```
+## II) create `serializers.py` inside the core app"
+
+```
+
+from djoser.serializers import UserCreateSerializer as BaseUserRegistrationSerializer
+
+class UserCreateSerializer(BaseUserRegistrationSerializer):
+    class Meta(BaseUserRegistrationSerializer.Meta):
+        fields = ('id', 'username', 'email', 'password', 'first_name', 'last_name')
+
+```
+
+## III) Register `serializers.py to settings.py`
+ `I got this from  Djoser documentations`
+```
+DJOSER = {
+    'SERIALIZERS': {
+        'user_create': 'userss.serializers.UserCreateSerializer'
+    }
+}
+```
+
+# 3 Build the profile API(for specific apps) by my case for know i will build profile app for store app
+
+## go to the specfic app and open the `serializers.py` file
+
+```
+class CustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = ['id', 'user_id', 'phone', 'birth_date', 'membership']
+```
+
+### Add this to the specfic `views.py`
+
+```
+class CustomerViewSet(ModelViewSet): # CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
+
+    def destroy(self, request, *args, **kwargs):
+        pass 
+```
+
+###  Register routes to the specfice `urls.py`
+router.register('customers', views.CustomerViewSet)
