@@ -3,3 +3,8 @@ because think remote control(tv) and their inside devise and the ui of the remot
 ## In API model we can create customize fields such as to calculate the task based on the given unit price for the Data(django) model
 ## to change the name of API model field or attribute 
 ```sourc="name_of_Data_model_field_reference)
+```
+
+## python manage.py dbshell
+
+ `To drop the database or table`
