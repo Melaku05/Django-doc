@@ -151,3 +151,15 @@ class CustomerViewSet(ModelViewSet): # CreateModelMixin, RetrieveModelMixin, Upd
 
 ###  Register routes to the specfice `urls.py`
 router.register('customers', views.CustomerViewSet)
+
+# Get the current user
+## we use [ModHeader](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj?hl=en)
+
+## Add this to the `core.py/serializers.py` files, inorder to see the field we want to see.
+
+```
+class UserSerializer(BaseUserSerializer):
+    class Meta(BaseUserSerializer.Meta):
+        fields = ['id', 'username', 'email', 'first_name', 'last_name']   
+
+```
