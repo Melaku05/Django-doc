@@ -7,14 +7,12 @@
 
 The preferred installation method is directly from pypi:
 
-.. code:: console
 ```
    pip install -U drf-yasg
 ```
 Additionally, if you want to use the built-in validation mechanisms (see `4. Validation`_), you need to install
 some extra requirements:
 
-.. code:: console
 ```
    pip install -U drf-yasg[validation]
 ```
@@ -25,7 +23,6 @@ some extra requirements:
 
 In ``settings.py``:
 
-.. code:: python
 ```
    INSTALLED_APPS = [
       ...
@@ -36,7 +33,6 @@ In ``settings.py``:
 ```
 In ``urls.py``:
 
-.. code:: python
 ```
    ...
    from rest_framework import permissions
