@@ -8,16 +8,16 @@
 The preferred installation method is directly from pypi:
 
 .. code:: console
-
+```
    pip install -U drf-yasg
-
+```
 Additionally, if you want to use the built-in validation mechanisms (see `4. Validation`_), you need to install
 some extra requirements:
 
 .. code:: console
-
+```
    pip install -U drf-yasg[validation]
-
+```
 .. _readme-quickstart:
 
 1. Quickstart
@@ -26,18 +26,18 @@ some extra requirements:
 In ``settings.py``:
 
 .. code:: python
-
+```
    INSTALLED_APPS = [
       ...
       'django.contrib.staticfiles',  # required for serving swagger ui's css/js files
       'drf_yasg',
       ...
    ]
-
+```
 In ``urls.py``:
 
 .. code:: python
-
+```
    ...
    from rest_framework import permissions
    from drf_yasg.views import get_schema_view
@@ -64,7 +64,7 @@ In ``urls.py``:
       re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
       ...
    ]
-
+```
 This exposes 4 endpoints:
 
 * A JSON view of your API specification at ``/swagger.json``
