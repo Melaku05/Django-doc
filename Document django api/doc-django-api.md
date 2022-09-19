@@ -2,28 +2,6 @@
 ## Using drf-yasg - Yet another Swagger generator
 
 
-
-   **Choose between redoc and swagger-ui.**
-
-.. figure:: https://raw.githubusercontent.com/axnsan12/drf-yasg/1.0.2/screenshots/swagger-ui-models.png
-   :width: 100%
-   :figwidth: image
-   :alt: model definitions screenshot
-
-   **Real Model definitions.**
-
-
-*****************
-Table of contents
-*****************
-
-.. contents::
-   :depth: 4
-
-*****
-Usage
-*****
-
 0. Installation
 ===============
 
