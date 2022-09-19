@@ -163,3 +163,42 @@ class UserSerializer(BaseUserSerializer):
         fields = ['id', 'username', 'email', 'first_name', 'last_name']   
 
 ```
+
+## Add register the `UserSerializer` class to the `settings.py`
+
+```
+DJOSER = {
+    'SERIALIZERS': {
+    'current_user': 'core.serializers.UserSerializer',
+    }
+}
+```
+
+# 4  getting or update current user profile
+
+## got to customer views.py
+```
+from rest_framework.decorators import action
+
+class CustomerViewSet(CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet): # CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
+
+   # new file
+   @action(detail=False, methods=['GET','PUT'])
+   def me(self, request):
+     customer=Customer.objects.get_or_create(user_id=request.user.id)
+      if requst.method== 'GET':
+        serializer = CustomerSerializer(customer)
+        return Response(serializer.data)
+      elif request.method == 'PUT':
+        serializer = CustomerSerializer(customer, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
+```
+### custom `serializers.py` user_id should be read only
+
+
+      
