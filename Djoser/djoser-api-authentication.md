@@ -122,7 +122,7 @@ class UserCreateSerializer(BaseUserRegistrationSerializer):
 ```
 DJOSER = {
     'SERIALIZERS': {
-        'user_create': 'userss.serializers.UserCreateSerializer'
+        'user_create': 'userss.serializers.UserCreaDJOSERteSerializer'
     }
 }
 ```
