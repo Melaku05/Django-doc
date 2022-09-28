@@ -167,3 +167,4 @@ class TestCreateCollection:
     assert response.status_code == status.HTTP_201_CREATED
     assert response.data['id'] > 0
 ```
+# this test just for creating collection only
