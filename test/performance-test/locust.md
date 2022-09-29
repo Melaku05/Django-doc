@@ -1,4 +1,4 @@
-# performance test(locust)
+# [performance test(locust)](https://locust.io/)
 ## core use cases in this project
 - Browse products
 - Register, sign in , sign out
@@ -44,4 +44,9 @@ class WebsiteUser(HttpUser):
         response = self.client.post('/carts/')
         result = response.json()
         self.cart_id = result['id']
+```
+## Run performance test
+
+```
+locust -f locustfiles/browse_products.py
 ```
