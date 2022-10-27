@@ -38,6 +38,8 @@ python3 manage.py collectstatic
 ```
 # Django does not support serving static files in production time. even though we have `collectstatic` command
 ## to do that we have to install third party library
+## [whitenoise](http://whitenoise.evans.io/en/stable/#installation)
+
 ```
 pip install whitenoise
 ```
